@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1468190318 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/src/Chessboard.cpp
+	"Chessboard.h"
+	"Global.h"
+	"iterator"
+
+1468189523 /home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/include/Chessboard.h
+	"Global.h"
+	"Field.h"
+
+1468179207 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/src/Global.cpp
+	"Global.h"
+	<iostream>
+
+1468178246 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/main.cpp
+	<iostream>
+	"Global.h"
+
+1468179207 /home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/include/Global.h
+
+1468190483 /home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/include/Field.h
+	<set>
+
+1468187699 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/src/Field.cpp
+	"Field.h"
+	<vector>
+
