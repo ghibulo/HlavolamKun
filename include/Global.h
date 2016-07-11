@@ -1,6 +1,8 @@
 #ifndef GLOBAL_H_INCLUDED
 #define GLOBAL_H_INCLUDED
 
+#define DEBUG
+
 namespace Constants
 {
     // forward declarations only

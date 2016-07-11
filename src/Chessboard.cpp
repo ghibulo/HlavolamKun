@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Chessboard.h"
 #include "Global.h"
 #include "iterator"
@@ -38,3 +39,12 @@ void Chessboard::filterOccupied(Fields &nb) {
     //std::copy_if(nb.fs.begin(), nb.fs.end(), std::inserter(fs, fs.end()), [](const Field & f){return field[f.x][f.y]==0});
     nb.fs.swap(fs);
 }
+
+void Chessboard::markField(int x, int y, int s) {
+    #ifdef DEBUG
+        if ((x<0)||(x>Constants::sizeBoard)||(y<0)||(y>Constants::sizeBoard)) std::cout << "debug problem markField";
+    #endif
+    field[x][y] = s;
+
+}
+

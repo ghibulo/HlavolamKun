@@ -14,6 +14,7 @@ class Chessboard
         Field horse;
         void getNeighb(Fields &nb);
         void filterOccupied(Fields &nb);
+        void markField(int x, int y, int s);
 
     private:
         char field[sizeBoard][sizeBoard];

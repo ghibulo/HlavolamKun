@@ -1,4 +1,5 @@
 #include "Field.h"
+#include "Global.h"
 #include <vector>
 #include <string>
 #include <iostream>
@@ -38,7 +39,7 @@ Fields::~Fields()
 }
 
 void Fields::add(Field f) {
-    if ((f.x>=0)&&(f.y>=0)) { //jen na Boardu
+    if ((f.x>=0)&&(f.y>=0)&&(f.x<Constants::sizeBoard)&&(f.x<Constants::sizeBoard)) { //jen na Boardu
         fs.insert(f);
     }
 
