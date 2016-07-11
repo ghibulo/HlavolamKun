@@ -1,10 +1,14 @@
 #include "Field.h"
 #include <vector>
+#include <string>
+#include <iostream>
+#include <sstream>
 
+using namespace std;
 
 //abych mohl ve Fields použít množinu
 bool operator< (Field f1, Field f2) {
-    return (f1.x+f1.y)<(f2.x+f2.y);
+    return (f1.toString())<(f2.toString());
 }
 
 Field::Field()
@@ -14,6 +18,13 @@ Field::Field()
 Field::Field(char x1, char y1)
 {x = x1;y = y1;}
 
+
+string Field::toString() {
+    stringstream t;
+    t << "Field: x=" << to_string(x) << ", y=" << to_string(y) << endl;
+    string vysl = t.str();
+    return vysl;
+}
 
 Fields::Fields()
 {
@@ -37,4 +48,11 @@ void Fields::del(Field f) {
 }
 void Fields::delAll() {
     fs.clear();
+}
+
+void Fields::debugPrint() {
+    for(it=fs.begin();it!=fs.end();it++) {
+        Field pole = *it;
+        cout << pole.toString();
+    }
 }

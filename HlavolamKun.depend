@@ -8,20 +8,26 @@
 	"Global.h"
 	"Field.h"
 
-1468179207 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/src/Global.cpp
+1468190531 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/src/Global.cpp
 	"Global.h"
 	<iostream>
 
-1468178246 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/main.cpp
+1468276315 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/main.cpp
 	<iostream>
 	"Global.h"
+	"Chessboard.h"
+	"Field.h"
 
-1468179207 /home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/include/Global.h
+1468273661 /home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/include/Global.h
 
-1468190483 /home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/include/Field.h
+1468275764 /home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/include/Field.h
 	<set>
+	<string>
 
-1468187699 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/src/Field.cpp
+1468276233 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/src/Field.cpp
 	"Field.h"
 	<vector>
+	<string>
+	<iostream>
+	<sstream>
 

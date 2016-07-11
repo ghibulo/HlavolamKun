@@ -9,6 +9,6 @@ namespace Constants
 
 }
 extern int pokus;
-void tiskniPokus();
+extern void tiskniPokus();
 
 #endif // GLOBAL_H_INCLUDED
