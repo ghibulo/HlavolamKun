@@ -53,6 +53,7 @@ void Chessboard::markField(int x, int y, int s) {
 }
 
 bool Chessboard::nNomarkFieldsLessThan(int n) {
+    /*
     int sum = 0;
     for (int i=0;i<Constants::sizeBoard;i++) {
         for (int j=0;j<Constants::sizeBoard;j++) {
@@ -61,6 +62,8 @@ bool Chessboard::nNomarkFieldsLessThan(int n) {
         }
     }
     return true;
+    */
+    return 64-mark <= n;
 }
 
 void Chessboard::debugChessboardPrint() {

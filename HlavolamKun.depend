@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1468344435 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/src/Chessboard.cpp
+1468344929 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/src/Chessboard.cpp
 	<iostream>
 	"Chessboard.h"
 	"Global.h"
@@ -13,7 +13,7 @@
 	"Global.h"
 	<iostream>
 
-1468344553 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/main.cpp
+1468344874 source:/home/ghibulo/Dropbox/programovani/ansiC++/HlavolamKun/main.cpp
 	<iostream>
 	"Global.h"
 	"Chessboard.h"
