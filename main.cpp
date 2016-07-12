@@ -7,19 +7,29 @@ using namespace std;
 using namespace Constants;
 
 //pokus o naivní rekurzi
-Chessboard recursiveJumping(Chessboard board, int tolerance) {
+bool recursiveJumping(Chessboard board, int tolerance, Chessboard &result) {
     Fields options;
 
-    if (board.nNomarkFieldsLessThan(tolerance)) return board;
+    if (board.nNomarkFieldsLessThan(tolerance)) {
+        result = board;
+        return true;
+    }
     board.getNeighb(options);
     board.filterOccupied(options);
     while (options.isNotEmpty()) { //vyzkousej vsechny moznosti do hloubky
         Field mv = options.pop();
         board.moveHorse(mv);
-        recursiveJumping(board,tolerance); //predavam hodnotou -> implicitní copy construktor objektu
-        board.unMoveHorse();
+        #ifdef DEBUG
+        cout << "moveHorse: " << mv.toString() << endl;
+        #endif
+        if (recursiveJumping(board,tolerance, result)) {
+        //predavam board hodnotou -> implicitní copy construktor objektu
+            return true;
+        } else {
+            board.unMoveHorse();
+        }
     }
-
+    return false;
 }
 
 
@@ -29,9 +39,10 @@ int main()
     //tiskniPokus();
     cout << "Hrajeme si s konem na sachovnici velikosti: " << sizeBoard <<  endl;
 
-    Chessboard board;
-    board.horse.x = 4;
-    board.horse.y = 0;
+    Chessboard board, reseno;
+    board.startAt(0,0);
+
+ /*
     Fields kamJdeSkocit;
     board.getNeighb(kamJdeSkocit);
     kamJdeSkocit.debugPrint();
@@ -41,9 +52,17 @@ int main()
     kamJdeSkocit.debugPrint();
     board.debugChessboardPrint();
 
-    board.markField(5,2,0);
-    Chessboard reseno = recursiveJumping(board,60);
+    Chessboard reseno = board;
     reseno.debugChessboardPrint();
+    board.markField(5,2,0);
+*/
+
+    if (recursiveJumping(board,10, reseno)) {
+        reseno.debugChessboardPrint();
+    } else {
+        cout << "nenasel!"<< endl;
+    }
+
 
     return 0;
 }

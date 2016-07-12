@@ -64,9 +64,10 @@ bool Chessboard::nNomarkFieldsLessThan(int n) {
 }
 
 void Chessboard::debugChessboardPrint() {
+    cout << "--------------" << endl;
     for (int i=0;i<Constants::sizeBoard;i++) {
         for (int j=0;j<Constants::sizeBoard;j++) {
-            printf("%d ", field[i][j]);
+            printf("%.2d ", field[i][j]);
         }
         cout << endl;
     }
@@ -85,4 +86,9 @@ void Chessboard::unMoveHorse() {
     markField(horse.x, horse.y,0);
     horse=lastField;
     lastField.x=-1;
+}
+
+void Chessboard::startAt(int x, int y) {
+    horse.x=x;horse.y=y;
+    markField(horse.x,horse.y,++mark);
 }

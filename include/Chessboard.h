@@ -17,8 +17,8 @@ class Chessboard
         void markField(int x, int y, int s);
         bool nNomarkFieldsLessThan(int n);
         void moveHorse(Field pl);
-
-         void unMoveHorse(); //vrati posledni tah - pro rekurzi neni potreba nekolikanasobne undo
+        void unMoveHorse(); //vrati posledni tah - pro rekurzi neni potreba nekolikanasobne undo
+        void startAt(int x, int y);
         void debugChessboardPrint();
 
     private:

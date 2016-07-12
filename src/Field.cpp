@@ -39,9 +39,16 @@ Fields::~Fields()
 }
 
 void Fields::add(Field f) {
-    if ((f.x>=0)&&(f.y>=0)&&(f.x<Constants::sizeBoard)&&(f.x<Constants::sizeBoard)) { //jen na Boardu
+    if ((f.x>=0)&&(f.y>=0)&&(f.x<Constants::sizeBoard)&&(f.y<Constants::sizeBoard)) { //jen na Boardu
         fs.insert(f);
+        #ifdef DEBUG
+         cout << "Vkladam: " << f.toString() << endl;
+         cout << "sizeBoard:" << Constants::sizeBoard << endl;
+        #endif
     }
+    #ifdef DEBUG
+    else { cout << "Odmitam " << f.toString() << endl; }
+    #endif
 
 }
 void Fields::del(Field f) {
