@@ -5,6 +5,8 @@
 
 using namespace Constants;
 
+
+
 class Chessboard
 {
     public:
@@ -12,6 +14,7 @@ class Chessboard
         Chessboard();
         virtual ~Chessboard();
         Field horse;
+        void doSomethingAround(int x, int y, void (*pfce) (unsigned int *, char *)  )
         void getNeighb(Fields &nb);
         void filterOccupied(Fields &nb);
         void markField(int x, int y, int s);

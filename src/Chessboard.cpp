@@ -19,6 +19,14 @@ Chessboard::~Chessboard()
 
     //dtor
 }
+
+void Chessboard::doSomethingAround(int x, int y, void (*pfce) (unsigned int *, char *)  ) {
+
+
+}
+
+
+
 void Chessboard::getNeighb(Fields &nb) {
     if (horse.x<0) return;
     nb.add(Field(horse.x-2,horse.y+1));

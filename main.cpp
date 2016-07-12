@@ -57,7 +57,7 @@ int main()
     board.markField(5,2,0);
 */
 
-    if (recursiveJumping(board,2, reseno)) {
+    if (recursiveJumping(board,0, reseno)) {
         reseno.debugChessboardPrint();
     } else {
         cout << "nenasel!"<< endl;
