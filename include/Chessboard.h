@@ -15,9 +15,16 @@ class Chessboard
         void getNeighb(Fields &nb);
         void filterOccupied(Fields &nb);
         void markField(int x, int y, int s);
+        bool nNomarkFieldsLessThan(int n);
+        void moveHorse(Field pl);
+
+         void unMoveHorse(); //vrati posledni tah - pro rekurzi neni potreba nekolikanasobne undo
+        void debugChessboardPrint();
 
     private:
         char field[sizeBoard][sizeBoard];
+        int mark;
+        Field lastField;
 };
 
 #endif // CHESSBOARD_H

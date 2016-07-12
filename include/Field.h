@@ -26,6 +26,9 @@ class Fields
         void add(Field f);
         void del(Field f);
         void delAll();
+        Field pop();
+        bool isLessThan(int n);
+        bool isNotEmpty();
         void debugPrint();
 
 

@@ -51,6 +51,20 @@ void Fields::delAll() {
     fs.clear();
 }
 
+Field Fields::pop() {
+    std::set<Field>::iterator one = fs.begin();
+    fs.erase(one);
+    return *one;
+}
+
+bool Fields::isLessThan(int n) {
+    return fs.size()<n;
+}
+
+bool Fields::isNotEmpty() {
+    return !(fs.empty());
+}
+
 void Fields::debugPrint() {
     for(it=fs.begin();it!=fs.end();it++) {
         Field pole = *it;
