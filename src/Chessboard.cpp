@@ -63,7 +63,7 @@ bool Chessboard::nNomarkFieldsLessThan(int n) {
     }
     return true;
     */
-    return 64-mark <= n;
+    return ((64-mark) <= n);
 }
 
 void Chessboard::debugChessboardPrint() {
@@ -84,11 +84,12 @@ void Chessboard::moveHorse(Field pl) {
 
 void Chessboard::unMoveHorse() {
     #ifdef DEBUG
-    if (lastField.x<0) cout << "Problem: opakovane undo neni implementovano";
+    if (lastField.x<0) { cout << "Problem: opakovane undo neni implementovano"; exit(1);}
     #endif
     markField(horse.x, horse.y,0);
     horse=lastField;
     lastField.x=-1;
+    mark--;
 }
 
 void Chessboard::startAt(int x, int y) {
