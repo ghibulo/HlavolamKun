@@ -7,15 +7,19 @@ using namespace Constants;
 
 
 
+void fillBufFields  (char x, char y, void *context);
+void sumEmptyNeighb (char x, char y, void *context);
+void doSomethingAround (int x, int y, void * context, void (*pfce) (char x, char y, void* ct));
+
 class Chessboard
 {
     public:
-
         Chessboard();
         virtual ~Chessboard();
         Field horse;
-        void doSomethingAround(int x, int y, void (*pfce) (unsigned int *, char *)  )
-        void getNeighb(Fields &nb);
+        void getNeighb(Fields &nb); //fill Fields by neigbours of horse
+        void getAvailability(Field &f); //count of available fields
+        void appraiseField(Fields &nb);
         void filterOccupied(Fields &nb);
         void markField(int x, int y, int s);
         bool nNomarkFieldsLessThan(int n);
@@ -23,11 +27,13 @@ class Chessboard
         void unMoveHorse(); //vrati posledni tah - pro rekurzi neni potreba nekolikanasobne undo
         void startAt(int x, int y);
         void debugChessboardPrint();
+        friend void sumEmptyNeighb (char x, char y, void *context); //abych se vyhnul getterum pro 'field'
 
     private:
         char field[sizeBoard][sizeBoard];
-        int mark;
+        int mark, nNeighb;
         Field lastField;
+
 };
 
 #endif // CHESSBOARD_H

@@ -7,22 +7,24 @@
 
 using namespace std;
 
-//abych mohl ve Fields použít množinu
 bool operator< (Field f1, Field f2) {
-    return (f1.toString())<(f2.toString());
+    if (f1.availability == f2.availability)
+        return (f1.toString())<(f2.toString());
+    else
+        return (f1.availability>f2.availability);
 }
 
 Field::Field()
-{x = 'x';y = 'x';}
+{x = 'x';y = 'x';availability=0;}
 
 
 Field::Field(char x1, char y1)
-{x = x1;y = y1;}
+{x = x1;y = y1;availability=0;}
 
 
 string Field::toString() {
     stringstream t;
-    t << "Field: x=" << to_string(x) << ", y=" << to_string(y) << endl;
+    t << "Field: x=" << to_string(x) << ", y=" << to_string(y) << ", av=" << to_string(availability) << endl;
     string vysl = t.str();
     return vysl;
 }
@@ -40,7 +42,7 @@ Fields::~Fields()
 
 void Fields::add(Field f) {
     if ((f.x>=0)&&(f.y>=0)&&(f.x<Constants::sizeBoard)&&(f.y<Constants::sizeBoard)) { //jen na Boardu
-        fs.insert(f);
+        fs.push_back(f);
         #ifdef DEBUG
          cout << "Vkladam: " << f.toString() << endl;
          cout << "sizeBoard:" << Constants::sizeBoard << endl;
@@ -51,25 +53,28 @@ void Fields::add(Field f) {
     #endif
 
 }
-void Fields::del(Field f) {
-    fs.erase(f);
-}
+
 void Fields::delAll() {
     fs.clear();
 }
 
 Field Fields::pop() {
-    std::set<Field>::iterator one = fs.begin();
-    fs.erase(one);
-    return *one;
+
+    Field res = fs.back();
+    fs.pop_back();
+    return res;
 }
 
 bool Fields::isLessThan(int n) {
-    return fs.size()<n;
+    return fs.size()<(unsigned)n;
 }
 
 bool Fields::isNotEmpty() {
     return !(fs.empty());
+}
+
+void Fields::sortIt() {
+    fs.sort();
 }
 
 void Fields::debugPrint() {

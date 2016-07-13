@@ -14,10 +14,16 @@ bool recursiveJumping(Chessboard board, int tolerance, Chessboard &result) {
         result = board;
         return true;
     }
-    board.getNeighb(options);
-    board.filterOccupied(options);
+    board.getNeighb(options); //prazdne i neprazdne
+    board.filterOccupied(options); //vyfiltruj jen prazdne
+    board.appraiseField(options); //ocen je podle dostupnosti
+    options.sortIt(); //seradit, dozadu ti nejpotrebnejsi
+    #ifdef DEBUG
+    cout  << "oceneno:"<<endl;
+    options.debugPrint();
+    #endif
     while (options.isNotEmpty()) { //vyzkousej vsechny moznosti do hloubky
-        Field mv = options.pop();
+        Field mv = options.pop(); //toho nejpotrebnejsiho v zadu
         board.moveHorse(mv);
         #ifdef DEBUG
         cout << "moveHorse: " << mv.toString() << endl;
@@ -57,7 +63,7 @@ int main()
     board.markField(5,2,0);
 */
 
-    if (recursiveJumping(board,0, reseno)) {
+    if (recursiveJumping(board,4, reseno)) {
         reseno.debugChessboardPrint();
     } else {
         cout << "nenasel!"<< endl;

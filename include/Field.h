@@ -2,6 +2,7 @@
 #define FIELD_H
 
 #include <set>
+#include <list>
 #include <string>
 
 class Field
@@ -11,6 +12,7 @@ class Field
         char y;
         Field();
         Field (char x1, char y1);
+        char availability; //dostupnost z okolnich prazdnych poli
         std::string toString();
 
 };
@@ -24,7 +26,8 @@ class Fields
         Fields();
         virtual ~Fields();
         void add(Field f);
-        void del(Field f);
+        //void del(Field f);
+        void sortIt();
         void delAll();
         Field pop();
         bool isLessThan(int n);
@@ -34,9 +37,11 @@ class Fields
 
 
     //private:
-        std::set<Field> fs;
+        // drive: std::set<Field> fs;
+        std::list<Field> fs;
     private:
-        std::set<Field>::iterator it;
+        std::list<Field>::iterator it;
+
 };
 
 #endif // FIELD_H
